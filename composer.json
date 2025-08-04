@@ -1,0 +1,7 @@
+{
+    "require": {
+        "minishlink/web-push": "^9.0",
+        "whichbrowser/parser": "^2.1",
+        "jenssegers/agent": "^2.6"
+    }
+}

@@ -1,0 +1,259 @@
+/*.pk-nm-wrapper {*/
+/*    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;*/
+/*}*/
+.pk-nm-card {
+    /*background: #fff;*/
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid var(--pk-border-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.pk-nm-card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--pk-border-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.pk-nm-card-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--pk-text-color);
+}
+.pk-nm-card-header .icon {
+    color: var(--pk-text-color);
+}
+.pk-nm-card-body {
+    padding: 24px;
+    font-size: 0.95rem;
+    color: var(--pk-text-color);
+    line-height: 1.7;
+}
+.pk-nm-card-body p strong {
+    font-weight: 600;
+}
+.pk-nm-status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-inline-end: 8px;
+}
+.pk-nm-status-dot.active {
+    background-color: var(--pk-success-color);
+}
+.pk-nm-status-dot.inactive {
+    background-color: var(--pk-border-color);
+}
+.pk-nm-status-dot.blocked {
+    background-color: var(--pk-danger-color);
+}
+.pk-nm-status-dot.sync {
+    background-color: var(--pk-warning-color);
+}
+.pk-nm-card-actions {
+    padding: 16px 24px;
+    background: var(--pk-background-color);
+    border-top: 1px solid var(--pk-border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+.pk-nm-section-title {
+    margin: 40px 0 15px;
+    border-bottom: 1px solid var(--pk-border-color);
+    padding-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--pk-title-color) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.pk-nm-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pk-nm-subscription-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    /*background: var(--pk-background-color);*/
+    border-radius: 8px;
+    border: 1px solid var(--pk-border-color);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.pk-nm-subscription-item.deleting {
+    opacity: 0;
+    transform: scale(0.95);
+}
+.pk-nm-subscription-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.pk-nm-subscription-info .icon {
+    color: var(--pk-text-color);
+}
+.pk-nm-subscription-info .details strong {
+    font-size: 0.95rem;
+    color: var(--pk-title-color);
+}
+.pk-nm-subscription-info .details small {
+    display: block;
+    color: var(--pk-text-color);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+.pk-nm-button-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--pk-text-color);
+    transition: color 0.2s;
+    padding: 5px;
+}
+.pk-nm-button-delete:hover {
+    color: var(--pk-danger-color);
+}
+#pk-nm-enable-btn,
+.pk-nm-button-danger {
+    transition: background-color 0.2s ease;
+}
+#pk-nm-enable-btn.button-primary {
+    background-color: var(--pk-theme-color);
+    border-color: var(--pk-theme-color);
+    color: var(--pk-button-text-color);
+}
+#pk-nm-enable-btn.button-primary:hover {
+   opacity: 0.8;
+}
+.pk-nm-button-danger {
+    background-color: var(--pk-danger-color) !important;
+    border-color: var(--pk-danger-color) !important;
+    color: #fff !important;
+}
+.pk-nm-button-danger:hover {
+    background-color: var(--pk-danger-color-dark) !important;
+    border-color: var(--pk-danger-color-dark) !important;
+}
+/* Skeleton Loader Styles */
+@keyframes pk-nm-skeleton-animation {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+.pk-nm-skeleton-item {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: pk-nm-skeleton-animation 1.5s infinite;
+    border-radius: 6px;
+    margin: 0 24px 15px;
+}
+.pk-nm-skeleton-header {
+    height: 24px;
+    width: 40%;
+    margin-bottom: 25px;
+}
+.pk-nm-skeleton-body {
+    height: 18px;
+}
+.pk-nm-skeleton-action {
+    height: 36px;
+    width: 120px;
+    margin: 25px 24px 10px auto;
+}
+/* Modal Styles */
+.pk-nm-modal-overlay {
+    position: fixed;
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000000005;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.pk-nm-modal-overlay.visible {
+    opacity: 1;
+}
+.pk-nm-modal {
+    background: var(--pk-background-color);
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.pk-nm-modal-overlay.visible .pk-nm-modal {
+    transform: scale(1);
+}
+.pk-nm-modal-title {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--pk-title-color);
+}
+.pk-nm-modal p {
+    margin: 0 0 20px;
+    color: var(--pk-text-color);
+    font-size: 0.95rem;
+}
+.pk-nm-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.pk-nm-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pk-nm-notif-status {
+    color: var(--pk-border-color); /* خاکستری برای غیرفعال */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* فاصله بین آیکون و متن */
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.pk-nm-notif-status.inactive {
+    color: #777;
+    background-color: #f0f0f0;
+}
+
+.pk-nm-notif-status.active {
+    color: var(--pk-success-color);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.pk-nm-button-logout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--pk-text-color);
+    transition: color 0.2s;
+    padding: 5px;
+    display: inline-flex;
+}
+
+.pk-nm-button-logout:hover {
+    color: var(--pk-danger-color);
+}

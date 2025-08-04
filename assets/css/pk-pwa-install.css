@@ -1,0 +1,304 @@
+/*
+ * PWA Kit - PWA Install Prompt Stylesheet (v2.0)
+ * This file contains all styles for the different prompt UIs.
+ */
+
+/* ==========================================================================
+   1. General Styles (Banner - Modal - Dynamic Installation Instructions)
+   ========================================================================== */
+
+#pk-pwa-popup-wrapper, #pk-pwa-dynamic-instructions {
+    position: fixed;
+    top: 0;
+    inset-inline-end: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000000003;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+#pk-pwa-popup-wrapper.visible, #pk-pwa-dynamic-instructions.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+#pk-pwa-popup-wrapper .pwa-popup-overlay, #pk-pwa-dynamic-instructions .pwa-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#pk-pwa-popup-wrapper .close-button, #pk-pwa-dynamic-instructions .close-button {
+    position: absolute;
+    top: 10px;
+    inset-inline-end: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    opacity: 60%;
+}
+
+#pk-pwa-popup-wrapper .close-button:hover, #pk-pwa-dynamic-instructions .close-button:hover {
+    opacity: 40%;
+}
+
+/* ==========================================================================
+   2. Modal Styles
+   ========================================================================== */
+
+#pk-pwa-popup-wrapper.style-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+#pk-pwa-popup-wrapper.style-modal .pwa-popup-content {
+    position: relative;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+    padding: 25px;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#pk-pwa-popup-wrapper.visible.style-modal .pwa-popup-content {
+    transform: scale(1);
+}
+
+#pk-pwa-popup-wrapper.style-modal .modal-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+#pk-pwa-popup-wrapper.style-modal h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+#pk-pwa-popup-wrapper.style-modal p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+    text-align: justify;
+    text-align-last: center
+}
+
+#pk-pwa-popup-wrapper.style-modal .install-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#pk-pwa-popup-wrapper.style-modal .install-button:hover {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   3. Banner Styles (Shared for Top & Bottom)
+   ========================================================================== */
+
+#pk-pwa-popup-wrapper.style-banner-top,
+#pk-pwa-popup-wrapper.style-banner-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .pwa-popup-content,
+#pk-pwa-popup-wrapper.style-banner-bottom .pwa-popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 12px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: auto; /* Re-enables pointer events on the banner itself */
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .banner-icon,
+#pk-pwa-popup-wrapper.style-banner-bottom .banner-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .banner-text,
+#pk-pwa-popup-wrapper.style-banner-bottom .banner-text {
+    flex-grow: 1;
+    text-align: right;
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .banner-text strong,
+#pk-pwa-popup-wrapper.style-banner-bottom .banner-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .banner-text small,
+#pk-pwa-popup-wrapper.style-banner-bottom .banner-text small {
+    font-size: 13px;
+    opacity: 0.7;
+    text-align: justify
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .install-button,
+#pk-pwa-popup-wrapper.style-banner-bottom .install-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .close-button,
+#pk-pwa-popup-wrapper.style-banner-bottom .close-button {
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+}
+
+/* --- 3.1 Banner Top Specifics --- */
+
+#pk-pwa-popup-wrapper.style-banner-top {
+    align-items: flex-start;
+}
+
+#pk-pwa-popup-wrapper.style-banner-top .pwa-popup-content {
+    transform: translateY(-150%);
+}
+
+#pk-pwa-popup-wrapper.visible.style-banner-top .pwa-popup-content {
+    transform: translateY(0);
+}
+
+/* --- 3.2 Banner Bottom Specifics --- */
+
+#pk-pwa-popup-wrapper.style-banner-bottom {
+    align-items: flex-end;
+}
+
+#pk-pwa-popup-wrapper.style-banner-bottom .pwa-popup-content {
+    transform: translateY(150%);
+}
+
+#pk-pwa-popup-wrapper.visible.style-banner-bottom .pwa-popup-content {
+    transform: translateY(0);
+}
+
+#pk-pwa-popup-wrapper.is-hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   4. Dynamic Installation Instructions Popup Styles
+   ========================================================================== */
+
+#pk-pwa-dynamic-instructions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pk-pwa-dynamic-instructions h2 {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#pk-pwa-dynamic-instructions ol.pwa-dynamic-instructions-list {
+    padding-inline-start: 30px;
+    list-style: none;
+}
+
+#pk-pwa-dynamic-instructions ol.pwa-dynamic-instructions-list .pk-step-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transform: translateY(2px);
+    margin-inline-start: -35px;
+    margin-inline-end: 4px;
+    padding-top: 6px;
+}
+
+#pk-pwa-dynamic-instructions li {
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+#pk-pwa-dynamic-instructions .pwa-popup-content {
+    position: relative;
+    padding: 25px;
+    border-radius: 16px;
+    max-width: 360px;
+    width: 90%;
+    transform: scale(.95);
+    transition: transform .3s cubic-bezier(.16, 1, .3, 1);
+    text-align: start;
+}
+
+#pk-pwa-dynamic-instructions.visible .pwa-popup-content {
+    transform: scale(1);
+}
+
+/*Offline Popup & Page*/
+
+/* استایل اسپینر (چرخنده) */
+.pk-modal-button-accept.is-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    margin-top: -9px;
+    margin-left: -9px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: pk-spinner 0.8s linear infinite;
+}
+
+@keyframes pk-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}

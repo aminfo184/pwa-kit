@@ -1,0 +1,471 @@
+/*
+ * PWA Kit - PWA Install Prompt Stylesheet (v2.0)
+ * This file contains all styles for the different prompt UIs.
+ */
+
+/* ==========================================================================
+   1. General Styles
+   ========================================================================== */
+
+#pk-subscribe-modal-wrapper, #pk-confirmation-modal, #pk-unblock-instructions {
+    position: fixed;
+    top: 0;
+    inset-inline-end: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000000003;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility 0s .3s;
+
+    padding: 15px
+}
+
+#pk-subscribe-modal-wrapper.visible, #pk-confirmation-modal.visible, #pk-unblock-instructions.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s ease
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-overlay, #pk-confirmation-modal .pk-modal-overlay, #pk-unblock-instructions .pk-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6)
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-content, #pk-confirmation-modal .pk-modal-content, #pk-unblock-instructions .pk-modal-content {
+    transform: scale(.95);
+    transition: transform .3s cubic-bezier(.16, 1, .3, 1);
+    position: relative;
+    border-radius: 16px;
+    max-width: 380px;
+    width: 100%;
+    padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1)
+}
+
+#pk-subscribe-modal-wrapper.visible .pk-modal-content, #pk-confirmation-modal.visible .pk-modal-content, #pk-unblock-instructions.visible .pk-modal-content {
+    transform: scale(1)
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-close, #pk-unblock-instructions .pk-modal-close {
+    position: absolute;
+    top: 10px;
+    inset-inline-end: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    opacity: 60%;
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-close:hover, #pk-unblock-instructions .pk-modal-close:hover {
+    opacity: 40%;
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-icon, #pk-confirmation-modal .pk-modal-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-icon svg, #pk-confirmation-modal .pk-modal-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor
+}
+
+#pk-subscribe-modal-wrapper p {
+    font-size: 15px;
+    /* color: #50575e; */
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-buttons, #pk-confirmation-modal .pk-modal-buttons {
+    display: flex;
+    gap: 10px
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-buttons button, #pk-confirmation-modal .pk-modal-buttons button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color .2s, color .2s
+}
+
+#pk-subscribe-modal-wrapper.is-hidden, #pk-confirmation-modal.is-hidden, #pk-unblock-instructions.is-hidden {
+    display: none
+}
+
+/* Unblock Modal Styles */
+
+#pk-subscribe-modal-wrapper h2, #pk-confirmation-modal h2, #pk-unblock-instructions h2 {
+    margin: 20px 0 5px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#pk-unblock-instructions ol.pk-instructions-list {
+    padding-inline-start: 30px;
+    list-style: none;
+}
+
+#pk-unblock-instructions ol.pk-instructions-list .pk-step-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transform: translateY(2px);
+    margin-inline-start: -35px;
+    margin-inline-end: 4px;
+    padding-top: 6px;
+}
+
+#pk-unblock-instructions .pk-instructions-list li code, #pk-unblock-instructions .pk-instructions-list li kbd {
+    padding: 2px 6px;
+    direction: ltr !important;
+    border-radius: 4px;
+    margin: 0 2px;
+    font-size: 0.85em;
+}
+
+#pk-unblock-instructions .pk-instructions-list li {
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+#pk-unblock-instructions p {
+    padding-bottom: 10px;
+}
+
+
+/*Confirmation Modal Style*/
+#pk-confirmation-modal p {
+    text-align: justify;
+    text-align-last: center;
+    font-size: 15px;
+    margin: 4px 0 20px;
+
+}
+
+#pk-subscribe-modal-wrapper .pk-modal-content, #pk-confirmation-modal .pk-modal-content, #pk-unblock-instructions h2 {
+    text-align: center;
+}
+
+#pk-subscribe-bell-wrapper {
+    z-index: 9999;
+}
+
+/*.pk-subscribe-bell {*/
+/*    width: 60px;*/
+/*    height: 60px;*/
+/*    !* background-color: #0073aa; *!*/
+/*    color: #fff;*/
+/*    border-radius: 50%;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    cursor: pointer;*/
+/*    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);*/
+/*    transition: transform .2s ease;*/
+/*}*/
+
+/*.pk-subscribe-bell:hover {*/
+/*    transform: scale(1.1);*/
+/*}*/
+
+/*.pk-subscribe-bell svg {*/
+/*    width: 28px;*/
+/*    height: 28px;*/
+/*    fill: currentColor;*/
+/*}*/
+
+.bell-icon {
+    -webkit-animation: ring 7s .7s ease-in-out infinite;
+    -webkit-transform-origin: 50% 4px;
+    -moz-animation: ring 7s .7s ease-in-out infinite;
+    -moz-transform-origin: 50% 4px;
+    animation: ring 7s .7s ease-in-out infinite;
+    transform-origin: 50% 4px;
+}
+
+@-webkit-keyframes ring {
+    0% {
+        transform: rotate(0);
+    }
+    1% {
+        transform: rotate(20deg);
+    }
+    3% {
+        transform: rotate(-19deg);
+    }
+    5% {
+        transform: rotate(18deg);
+    }
+    7% {
+        transform: rotate(-17deg);
+    }
+    9% {
+        transform: rotate(16deg);
+    }
+    11% {
+        transform: rotate(-15deg);
+    }
+    13% {
+        transform: rotate(14deg);
+    }
+    15% {
+        transform: rotate(-13deg);
+    }
+    17% {
+        transform: rotate(12deg);
+    }
+    19% {
+        transform: rotate(-11deg);
+    }
+    21% {
+        transform: rotate(10deg);
+    }
+    23% {
+        transform: rotate(-9deg);
+    }
+    25% {
+        transform: rotate(8deg);
+    }
+    27% {
+        transform: rotate(-7deg);
+    }
+    29% {
+        transform: rotate(6deg);
+    }
+    31% {
+        transform: rotate(-5deg);
+    }
+    33% {
+        transform: rotate(4deg);
+    }
+    35% {
+        transform: rotate(-3deg);
+    }
+    37% {
+        transform: rotate(2deg);
+    }
+    39% {
+        transform: rotate(-1deg);
+    }
+    41% {
+        transform: rotate(1deg);
+    }
+
+    43% {
+        -webkit-transform: rotateZ(0);
+    }
+    100% {
+        -webkit-transform: rotateZ(0);
+    }
+}
+
+@-moz-keyframes ring {
+    0% {
+        transform: rotate(0);
+    }
+    1% {
+        transform: rotate(20deg);
+    }
+    3% {
+        transform: rotate(-19deg);
+    }
+    5% {
+        transform: rotate(18deg);
+    }
+    7% {
+        transform: rotate(-17deg);
+    }
+    9% {
+        transform: rotate(16deg);
+    }
+    11% {
+        transform: rotate(-15deg);
+    }
+    13% {
+        transform: rotate(14deg);
+    }
+    15% {
+        transform: rotate(-13deg);
+    }
+    17% {
+        transform: rotate(12deg);
+    }
+    19% {
+        transform: rotate(-11deg);
+    }
+    21% {
+        transform: rotate(10deg);
+    }
+    23% {
+        transform: rotate(-9deg);
+    }
+    25% {
+        transform: rotate(8deg);
+    }
+    27% {
+        transform: rotate(-7deg);
+    }
+    29% {
+        transform: rotate(6deg);
+    }
+    31% {
+        transform: rotate(-5deg);
+    }
+    33% {
+        transform: rotate(4deg);
+    }
+    35% {
+        transform: rotate(-3deg);
+    }
+    37% {
+        transform: rotate(2deg);
+    }
+    39% {
+        transform: rotate(-1deg);
+    }
+    41% {
+        transform: rotate(1deg);
+    }
+
+    43% {
+        -moz-transform: rotate(0);
+    }
+    100% {
+        -moz-transform: rotate(0);
+    }
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0);
+    }
+    1% {
+        transform: rotate(20deg);
+    }
+    3% {
+        transform: rotate(-19deg);
+    }
+    5% {
+        transform: rotate(18deg);
+    }
+    7% {
+        transform: rotate(-17deg);
+    }
+    9% {
+        transform: rotate(16deg);
+    }
+    11% {
+        transform: rotate(-15deg);
+    }
+    13% {
+        transform: rotate(14deg);
+    }
+    15% {
+        transform: rotate(-13deg);
+    }
+    17% {
+        transform: rotate(12deg);
+    }
+    19% {
+        transform: rotate(-11deg);
+    }
+    21% {
+        transform: rotate(10deg);
+    }
+    23% {
+        transform: rotate(-9deg);
+    }
+    25% {
+        transform: rotate(8deg);
+    }
+    27% {
+        transform: rotate(-7deg);
+    }
+    29% {
+        transform: rotate(6deg);
+    }
+    31% {
+        transform: rotate(-5deg);
+    }
+    33% {
+        transform: rotate(4deg);
+    }
+    35% {
+        transform: rotate(-3deg);
+    }
+    37% {
+        transform: rotate(2deg);
+    }
+    39% {
+        transform: rotate(-1deg);
+    }
+    41% {
+        transform: rotate(1deg);
+    }
+
+    43% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/* استایل دکمه فعال‌سازی در حالت لودینگ */
+.pk-modal-button-accept.is-loading {
+    position: relative;
+    color: transparent !important; /* مخفی کردن متن اصلی دکمه */
+    pointer-events: none; /* غیرفعال کردن کلیک‌های مجدد */
+}
+
+/*sangarzadeh.com*/
+
+
+@media (max-width: 768px) {
+    .bell-float-btn-login {
+        bottom: 140px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .bell-float-btn-guest {
+        bottom: 80px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .bell-float-btn-login {
+        bottom: 65px !important;
+    }
+}
