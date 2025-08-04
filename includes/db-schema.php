@@ -43,7 +43,6 @@ function pk_create_tables()
         id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
         user_id BIGINT(20) UNSIGNED DEFAULT 0,
         guest_token VARCHAR(64) DEFAULT NULL,
-        session_token_hash VARCHAR(64) DEFAULT NULL,
         endpoint MEDIUMTEXT NOT NULL,
         public_key MEDIUMTEXT,
         auth_token MEDIUMTEXT,
@@ -56,7 +55,6 @@ function pk_create_tables()
         PRIMARY KEY (id),
         UNIQUE KEY endpoint_unique (endpoint(255)),
         KEY user_id_idx (user_id),
-        KEY session_token_idx (session_token_hash),
         KEY status_idx (status),
         KEY guest_token_idx (guest_token)
     ) $charset_collate;";
